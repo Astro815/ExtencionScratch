@@ -29,26 +29,16 @@ class js {
                 },
 
                 {
-                    opcode: 'jsr',
-                    blockType: Scratch.BlockType.REPORTER,
-                    text: 'Javascript [text]',
+                    opcode: 'cb',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'Set Cursor to [cur]',
                     arguments: {
                         text: {
                             type: Scratch.ArgumentType.STRING,
-                            defaultValue: '1+1'
+                            defaultValue: 'pointer',
+                            menu: "cursors"
                         }
                     }
-                }, {
-                    "opcode": "cb",
-                    "blockType": "command",
-                    "text": "switch cursor to [cur]",
-                    "arguments": {
-                        "cur": {
-                            "type": "string",
-                            "defaultValue": "pointer",
-                            "menu": "cursors"
-                        },
-                    },
                 }
 
 
@@ -74,7 +64,8 @@ class js {
     };
 
     cb(args) {
-        eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";")
+        eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";");
+        return 0;
     }
 
 }
