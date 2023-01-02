@@ -47,8 +47,8 @@ class MouseCursor {
     }
 
     SwitchCur({ cur }) {
-        document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor = cur;
-        /*this.stage.style.cursor = cur;*/
+        /*document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor = cur;
+        this.stage.style.cursor = cur;*/
     }
 
     hide() {
@@ -56,11 +56,12 @@ class MouseCursor {
     }
 
     reset() {
-        this.stage.style.cursor = "auto";
+        /*this.stage.style.cursor = "auto";*/
+        console.log(this)
     }
 
     GetCur() {
-        return document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor;
+        /*return document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor;
         /*return this.stage.style.cursor;*/
     }
 }
