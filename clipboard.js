@@ -1,15 +1,45 @@
-class MouseCursor {
-    constructor(runtime) {
-        this.runtime = runtime;
-        this.stage = document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp");
-    }
+class js {
 
     getInfo() {
         return {
-            "id": "MouseCursor",
-            "name": "Cursor",
-            "blocks": [{
-                    "opcode": "SwitchCur",
+            id: '123456',
+            name: 'Javascript',
+            blocks: [{
+                    opcode: 'js',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'Javascript [text]',
+                    arguments: {
+                        text: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'console.log("Hello World!");'
+                        }
+                    }
+                },
+
+                {
+                    opcode: 'jsr',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Javascript [text]',
+                    arguments: {
+                        text: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '1+1'
+                        }
+                    }
+                },
+
+                {
+                    opcode: 'jsr',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Javascript [text]',
+                    arguments: {
+                        text: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '1+1'
+                        }
+                    }
+                }, {
+                    "opcode": "cb",
                     "blockType": "command",
                     "text": "switch cursor to [cur]",
                     "arguments": {
@@ -19,24 +49,10 @@ class MouseCursor {
                             "menu": "cursors"
                         },
                     },
-                },
-                {
-                    "opcode": "hide",
-                    "blockType": "command",
-                    "text": "hide cursor",
-                },
-                {
-                    "opcode": "reset",
-                    "blockType": "command",
-                    "text": "reset cursor",
-                },
-                {
-                    "opcode": "GetCur",
-                    "blockType": "reporter",
-                    "text": "cursor",
-                },
-            ],
+                }
 
+
+            ],
             "menus": {
                 "cursors": {
                     acceptReporters: true,
@@ -44,26 +60,23 @@ class MouseCursor {
                 }
             }
         };
+
     }
 
-    SwitchCur({ cur }) {
-        /*document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor = cur;
-        this.stage.style.cursor = cur;*/
+    js(args) {
+        eval(args.text);
+        return 0;
+    };
+
+    jsr(args) {
+        var response = eval(args.text);
+        return response;
+    };
+
+    cb(args) {
+        eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";")
     }
 
-    hide() {
-        this.stage.style.cursor = "none";
-    }
-
-    reset() {
-        /*this.stage.style.cursor = "auto";*/
-        console.log(this)
-    }
-
-    GetCur() {
-        /*return document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor;
-        /*return this.stage.style.cursor;*/
-    }
 }
 
-Scratch.extensions.register(new MouseCursor())
+Scratch.extensions.register(new js());
