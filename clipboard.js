@@ -33,7 +33,7 @@ class js {
                     blockType: Scratch.BlockType.COMMAND,
                     text: 'Set Cursor to [cur]',
                     arguments: {
-                        text: {
+                        cur: {
                             type: Scratch.ArgumentType.STRING,
                             defaultValue: 'pointer',
                             menu: "cursors"
