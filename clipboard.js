@@ -30,7 +30,7 @@ class ClipBoard {
                     "blockType": "command",
                     "text": "Copy [t]",
                     "arguments": {
-                        "s": {
+                        "t": {
                             "type": "string",
                             "defaultValue": "Hello"
                         },
