@@ -47,7 +47,8 @@ class MouseCursor {
     }
 
     SwitchCur({ cur }) {
-        this.stage.style.cursor = cur;
+        document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor = cur;
+        /*this.stage.style.cursor = cur;*/
     }
 
     hide() {
@@ -59,7 +60,8 @@ class MouseCursor {
     }
 
     GetCur() {
-        return this.stage.style.cursor;
+        return document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp").style.cursor;
+        /*return this.stage.style.cursor;*/
     }
 }
 
