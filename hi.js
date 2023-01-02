@@ -2,7 +2,27 @@ const icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34
 
 class Utilities {
 
-    constructor() {}
+    constructor() {
+        ext._shutdown = function() {};
+
+        // Status reporting code
+        // Use this to report missing hardware, plugin or unsupported browser
+        ext._getStatus = function() {
+            return { status: 2, msg: 'Ready' };
+        };
+
+        ext.my_first_block = function() {
+            // Code that gets executed when the block is run
+        };
+
+        // Block and block menu descriptions
+        var descriptor = {
+            blocks: [
+                // Block type, block name, function name
+                [' ', 'my first block', 'my_first_block'],
+            ]
+        };
+    }
 
     getInfo() {
         return {
@@ -14,6 +34,7 @@ class Utilities {
             color3: '#689F38',
 
             menuIconURI: icon,
+
 
             blocks: [{
                     opcode: 'isExactly',
