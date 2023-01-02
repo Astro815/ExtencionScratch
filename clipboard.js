@@ -1,57 +1,66 @@
-// MIT license
-
-class ClipBoard {
+class MouseCursor {
     constructor(runtime) {
-
+        this.runtime = runtime;
+        this.stage = document.body.querySelector(".stage_stage_1fD7k.box_box_2jjDp");
     }
 
     getInfo() {
         return {
-            "id": "ClipBoard",
-            "name": "ClipBoard",
+            "id": "MouseCursor",
+            "name": "Cursor",
             "blocks": [{
-                    "opcode": "axisValue",
-                    "blockType": "reporter",
-                    "text": "axis [b] of pad [i] value",
+                    "opcode": "SwitchCur",
+                    "blockType": "command",
+                    "text": "switch cursor to [cur]",
                     "arguments": {
-                        "b": {
-                            "type": "number",
-                            "defaultValue": "1"
-                        },
-                        "i": {
-                            "type": "number",
-                            "defaultValue": "1",
-                            "menu": "padMenu"
+                        "cur": {
+                            "type": "string",
+                            "defaultValue": "pointer",
+                            "menu": "cursors"
                         },
                     },
                 },
                 {
-                    "opcode": "writeCB",
+                    "opcode": "hide",
                     "blockType": "command",
-                    "text": "Copy [t]",
-                    "arguments": {
-                        "t": {
-                            "type": "string",
-                            "defaultValue": "Hello"
-                        },
-                    },
+                    "text": "hide cursor",
+                },
+                {
+                    "opcode": "reset",
+                    "blockType": "command",
+                    "text": "reset cursor",
+                },
+                {
+                    "opcode": "GetCur",
+                    "blockType": "reporter",
+                    "text": "cursor",
                 },
             ],
-            "menus": {}
+
+            "menus": {
+                "cursors": {
+                    acceptReporters: true,
+                    items: [{ text: "default", value: "default" }, { text: "pointer", value: "pointer" }, { text: "crosshair", value: "crosshair" }, { text: "move", value: "move" }, { text: "text", value: "text" }, { text: "wait", value: "wait" }, { text: "progress", value: "progress" }, { text: "help", value: "help" }],
+                }
+            }
         };
     }
 
-    buttonDown({ b, i }) {
-        return this.gamepads[i - 1].getButton(this.runtime.currentMSecs, b - 1)
+    SwitchCur({ cur }) {
+        this.stage.style.cursor = cur;
     }
 
-    writeCB({ t }) {
-        var tempInput = document.createElement("input");
-        tempInput.value = t;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
+    hide() {
+        this.stage.style.cursor = "none";
+    }
+
+    reset() {
+        this.stage.style.cursor = "auto";
+    }
+
+    GetCur() {
+        return this.stage.style.cursor;
     }
 }
-Scratch.extensions.register(new ClipBoard())
+
+Scratch.extensions.register(new MouseCursor())
