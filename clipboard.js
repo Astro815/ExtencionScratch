@@ -31,7 +31,7 @@ class ClipBoard {
                     "text": "Copy [t]",
                     "arguments": {
                         "s": {
-                            "type": "text",
+                            "type": "string",
                             "defaultValue": "Hello"
                         },
                     },
