@@ -251,11 +251,12 @@ class ScratchGamepad {
         this.gamepads[i - 1].rumble(s, w, t)
     }
 }
-
+/*
 (function() {
     var extensionInstance = new ScratchGamepad(window.vm.extensionManager.runtime)
     var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance)
     window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName)
-})()
+})()*/
 
 Scratch.extensions.register(new SingleGamepad())
+Scratch.extensions.register(new ScratchGamepad())
