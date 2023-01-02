@@ -18,7 +18,7 @@ class Utilities {
             blocks: [{
                     opcode: 'isExactly',
 
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: Scratch.BlockType.BLOCK,
 
                     text: 'is [A] exactly [B]?',
                     arguments: {
