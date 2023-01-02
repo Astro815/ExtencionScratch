@@ -257,4 +257,5 @@ class ScratchGamepad {
     var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance)
     window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName)
 })()
-Scratch.extensions.register(new ScratchFetch())
+
+Scratch.extensions.register(new SingleGamepad())
