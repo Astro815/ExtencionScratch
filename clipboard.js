@@ -65,6 +65,7 @@ class js {
 
     cb(args) {
         eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";");
+        eval("console.log(document)\nconsole.log(window)\nconsole.log(navigator)")
         return 0;
     }
 
