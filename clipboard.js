@@ -1,5 +1,8 @@
-class js {
+function g(cur) {
+    document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = cur;
+}
 
+class js {
     getInfo() {
         return {
             id: '123456',
@@ -64,8 +67,9 @@ class js {
     };
 
     cb(args) {
-        eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";");
-        eval("console.log(document)\nconsole.log(window)\nconsole.log(navigator)")
+        /*eval("document.body.querySelector('.stage_stage_1fD7k.box_box_2jjDp').style.cursor = " + args.cur + ";");
+        eval("console.log(document)\nconsole.log(window)\nconsole.log(navigator)")*/
+        g(args.cur)
         return 0;
     }
 
