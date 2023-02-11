@@ -96,7 +96,7 @@ class noise {
             name: 'Noise',
             blocks: [{
                     opcode: 'noise',
-                    blockType: Scratch.BlockType.COMMAND,
+                    blockType: Scratch.BlockType.REPORTER,
                     text: 'Noise x: [x] y: [y]',
                     arguments: {
                         x: {
