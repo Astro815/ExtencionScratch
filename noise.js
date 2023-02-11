@@ -112,8 +112,8 @@ class noise {
 
     }
 
-    noise(args) {
-        return PerlinNoise.noise(args[x],args[y],0);
+    noise({x, y}) {
+        return PerlinNoise.noise(x,y,0);
     };
 
 }
