@@ -1,7 +1,3 @@
-// References:
-// - https://mrl.nyu.edu/~perlin/noise/
-// - https://flafla2.github.io/2014/08/09/perlinnoise.html
-
 class PerlinNoise {
 
     /// perlin noise (raw)
@@ -93,4 +89,33 @@ class PerlinNoise {
     }
 }
 
-module.exports = PerlinNoise;
+class noise {
+    getInfo() {
+        return {
+            id: 'NoiseJsScratch',
+            name: 'Noise',
+            blocks: [{
+                    opcode: 'noise',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'Noise x: [x] y: [y]',
+                    arguments: {
+                        x: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        },y: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        }
+                    }
+                }]
+        };
+
+    }
+
+    noise(args) {
+        return PerlinNoise.noise(args[x],args[y],0);
+    };
+
+}
+
+Scratch.extensions.register(new noise());
