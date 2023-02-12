@@ -350,6 +350,8 @@
 
 })(this);
 
+const ns = noise;
+
 class NoiseScratch {
     getInfo() {
         return {
@@ -386,10 +388,10 @@ class NoiseScratch {
     }
 
     setSeed({S}) {
-        noise.seed(S);
+        ns.seed(S);
     };
   perlin2({X, Y}) {
-        return noise.perlin2(X,Y);
+        return ns.perlin2(X,Y);
     };
 
 }
