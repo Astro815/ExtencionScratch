@@ -368,7 +368,7 @@ class NoiseScratch {
                 },{
                     opcode: 'perlin2',
                     blockType: Scratch.BlockType.REPORTER,
-                    text: 'Set seed [S]',
+                    text: 'Perlin2 x:[X] y:[Y]',
                     arguments: {
                         X: {
                             type: Scratch.ArgumentType.NUMBER,
@@ -387,7 +387,6 @@ class NoiseScratch {
 
     setSeed({S}) {
         noise.seed(S);
-        return 0;
     };
   perlin2({X, Y}) {
         return noise.perlin2(X,Y);
