@@ -13,9 +13,7 @@
  * attribution is appreciated.
  *
  */
-
-class NoiseScratch {
-    (function(global) {
+(function(global) {
     var module = global.noise = {};
 
     function Grad(x, y, z) {
@@ -350,6 +348,11 @@ class NoiseScratch {
     };
 
 })(this);
+
+class NoiseScratch {
+    constructor(r){
+    this.ns = r;
+    }
     getInfo() {
         return {
             id: 'NoiseScratch',
@@ -393,4 +396,4 @@ class NoiseScratch {
 
 }
 
-Scratch.extensions.register(new NoiseScratch());
+Scratch.extensions.register(new NoiseScratch(noise));
