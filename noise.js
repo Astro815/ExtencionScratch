@@ -14,7 +14,8 @@
  *
  */
 
-(function(global) {
+class NoiseScratch {
+    (function(global) {
     var module = global.noise = {};
 
     function Grad(x, y, z) {
@@ -349,10 +350,6 @@
     };
 
 })(this);
-
-const ns = noise;
-
-class NoiseScratch {
     getInfo() {
         return {
             id: 'NoiseScratch',
@@ -388,10 +385,10 @@ class NoiseScratch {
     }
 
     setSeed({S}) {
-        ns.seed(S);
+        noise.seed(S);
     };
   perlin2({X, Y}) {
-        return ns.perlin2(X,Y);
+        return noise.perlin2(X,Y);
     };
 
 }
